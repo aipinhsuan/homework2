@@ -15,37 +15,37 @@
         <table>
             <tr><input type="text"  id="display" ></tr>
             <tr>
-                <td><button type="button" name="op_percent">%</button></td>
+                <td><button type="button" name="op_percent" onclick="cal.Percent();">%</button></td>
                 <td><button type="button" name="op_ce">CE</button></td>
-                <td><button type="button" name="clear">C</button></td>
+                <td><button type="button" name="clear" onclick="cal.Clear();">C</button></td>
                 <td><button type="button" name="delete">DEL</button></td>
             </tr>
             <tr>
-                <td><button type="button" name="reciprocal">1/x</button></td>
-                <td><button type="button" name="power">x^2</button></td>
-                <td><button type="button" name="square">x^0.5</button></td>
-                <td><button type="button" name="op_divide" onclick="cal.Divide();">/</button></td>
+                <td><button type="button" name="reciprocal" onclick="cal.Reciprocal();">1/x</button></td>
+                <td><button type="button" name="power" onclick="cal.Power();">x^2</button></td>
+                <td><button type="button" name="square" onclick="cal.Square();">x^0.5</button></td>
+                <td><button type="button" name="op_divide" onclick="cal.SetOperator('/');">/</button></td>
             </tr>
             <tr>
                 <td><button type="button" onclick="cal.NumberButton('7');">7</button></td>
                 <td><button type="button" onclick="cal.NumberButton('8');">8</button></td>
                 <td><button type="button" onclick="cal.NumberButton('9');">9</button></td>
-                <td><button type="button" name="op_multiply" onclick="cal.Multiply();">*</button></td>
+                <td><button type="button" name="op_multiply" onclick="cal.SetOperator('*');">*</button></td>
             </tr>
             <tr>
                 <td><button type="button" onclick="cal.NumberButton('4');">4</button></td>
                 <td><button type="button" onclick="cal.NumberButton('5');">5</button></td>
                 <td><button type="button" onclick="cal.NumberButton('6');">6</button></td>
-                <td><button type="button" name="op_subtract" onclick="cal.Subtract();">-</button></td>
+                <td><button type="button" name="op_subtract" onclick="cal.SetOperator('-');">-</button></td>
             </tr>
             <tr>
                 <td><button type="button" onclick="cal.NumberButton('1');">1</button></td>
                 <td><button type="button" onclick="cal.NumberButton('2');">2</button></td>
                 <td><button type="button" onclick="cal.NumberButton('3');">3</button></td>
-                <td><button type="button" name="op_add" onclick="cal.Add();">+</button></td>
+                <td><button type="button" name="op_add" onclick="cal.SetOperator('+');">+</button></td>
             </tr>
             <tr>
-                <td><button type="button" name="op_not">+/-</button></td>
+                <td><button type="button" name="op_not" onclick="cal.Not();">+/-</button></td>
                 <td><button type="button" onclick="cal.NumberButton('0');">0</button></td>
                 <td><button type="button" name="point">.</button></td>
                 <td><button type="button" onclick="cal.Equal();">=</button></td>
