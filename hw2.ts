@@ -1,93 +1,72 @@
 class Calculator {
+    private displayExpressionString:string = "";
+    private displayReslutString:string = "";
 
-    private operand_1:string = "";
-    private operand_2:string = "";
-    private operator:string = "";
-    private displayString:string = "";
-    private isFirst:boolean;
-
-    constructor(){
-        this.isFirst = true;
+    constructor(){      
+          this.displayReslutString = "0";
     }
 
     public Clear(){
-        this.operand_1 = "";
-        this.operand_2 = "";
-        this.operator = "";
-        this.displayString = "0";
-        this.isFirst = true;
+        this.displayExpressionString = "0";    
+        this.displayReslutString = "0";
         this.Display();
+        this.DisplayResult();
     }
 
     public Percent(){
-        this.displayString = (+this.operand_1 / 100.0) + "";
+        this.Equal();
+        this.displayReslutString = (+this.displayReslutString / 100.0) + "";
         this.Display();
     }
 
     public Reciprocal(){
-        this.displayString = (1/+this.operand_1) + "";
+        this.Equal();
+        this.displayReslutString = (1/+this.displayReslutString) + "";
         this.Display();
     }
 
     public Power(){
-        this.displayString = Math.pow(+this.operand_1,2)+ "";
+        this.Equal();
+        this.displayReslutString = Math.pow(+this.displayReslutString,2)+ "";
         this.Display();
     }
 
     public Square(){
-        this.displayString =  Math.pow(+this.operand_1,0.5) + "";
+        this.Equal();
+        this.displayReslutString =  Math.pow(+this.displayReslutString,0.5) + "";
         this.Display();
     }   
 
     public NumberButton(num:string){
-        if (this.displayString === "0"){
-            this.displayString = "";
+        if (this.displayExpressionString === "0"){
+            this.displayExpressionString = "";
         }        
 
-        if (this.isFirst){           
-            this.operand_1 += num; 
-            this.displayString += num;          
-        }
-        else {    
-            this.operand_2 += num;
-            this.displayString += num;  
-        }
+        this.displayExpressionString += num; 
+
         this.Display();
     }
 
-    public SetOperator(op:string){
-        this.isFirst = false;
-        this.displayString += op;  
-        this.operator = op;
+    public SetOperator(op:string){     
+        this.displayExpressionString += op; 
         this.Display();
     } 
 
     public Equal(){
-        this.isFirst = true;
-        var operand_1:number = + this.operand_1;
-        var operand_2:number = + this.operand_2;
-        var result:number = 0;
-        switch(this.operator){
-            case "+":
-                result = operand_1 + operand_2;
-                break;
-            case "-":
-                result = operand_1 - operand_2;
-                break;
-            case "*":
-                result = operand_1 * operand_2;
-                break;
-            case "/":
-                result = operand_1 / operand_2;
-                break;
-        }
+
+       var result:number = eval(this.displayExpressionString);        
        
-        this.displayString = result + "";
-        this.Display();
+        this.displayReslutString = result + "";
+        
+        this.DisplayResult();
     }
 
     private Display(){
-        (<HTMLInputElement>document.getElementById("display")).setAttribute("value", this.displayString + "");    
+        (<HTMLInputElement>document.getElementById("display")).setAttribute("value", this.displayExpressionString + "");    
+    }
+
+    private DisplayResult(){
+        (<HTMLInputElement>document.getElementById("display_result")).setAttribute("value", this.displayReslutString + "");    
     }
 }
 
