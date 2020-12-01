@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>計算機</title>
-        <script src="./hw2.js"></script>
+        <script src="hw.js"></script>
     </head>
     <body>
         <style type="text/css">
@@ -14,17 +14,17 @@
         </style>
         <table>
             <tr><td colspan="4"><input type="text"  id="display" ></td></tr>
-            <tr><td colspan="4"><input type="text"  id="display_result" ></td></tr>
+            <tr><td colspan="4"><input type="text"  id="result" ></td></tr>
             <tr>
                 <td><button type="button" name="op_percent" onclick="cal.Percent();">%</button></td>
                 <td><button type="button" name="op_ce">CE</button></td>
                 <td><button type="button" name="clear" onclick="cal.Clear();">C</button></td>
-                <td><button type="button" name="delete">DEL</button></td>
+                <td><button type="button" name="delete" onclick="cal.Delete()">DEL</button></td>
             </tr>
             <tr>
                 <td><button type="button" name="reciprocal" onclick="cal.Reciprocal();">1/x</button></td>
-                <td><button type="button" name="power" onclick="cal.Power();">x^2</button></td>
-                <td><button type="button" name="square" onclick="cal.Square();">x^0.5</button></td>
+                <td><button type="button" name="power" onclick="cal.Power(2);">x^2</button></td>
+                <td><button type="button" name="square" onclick="cal.Power(0.5);">x^0.5</button></td>
                 <td><button type="button" name="op_divide" onclick="cal.SetOperator('/');">/</button></td>
             </tr>
             <tr>
@@ -46,9 +46,9 @@
                 <td><button type="button" name="op_add" onclick="cal.SetOperator('+');">+</button></td>
             </tr>
             <tr>
-                <td><button type="button" name="op_not" onclick="cal.Not();">+/-</button></td>
+                <td><button type="button" name="op_not" onclick="cal.Sign();">+/-</button></td>
                 <td><button type="button" onclick="cal.NumberButton('0');">0</button></td>
-                <td><button type="button" name="point">.</button></td>
+                <td><button type="button" name="point" onclick="cal.NumberButton('.');">.</button></td>
                 <td><button type="button" onclick="cal.Equal();">=</button></td>
             </tr>
         </table>
